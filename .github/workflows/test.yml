@@ -1,0 +1,22 @@
+name: test
+on: [push, pull_request]
+jobs:
+  build-and-test:
+    strategy:
+      matrix:
+        os: [ubuntu-24.04, ubuntu-24.04-arm, macos-14]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ISA-L (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libisal-dev
+      - name: Install ISA-L (macOS)
+        if: runner.os == 'macOS'
+        run: brew install isa-l
+      - name: Build
+        run: |
+          if [ "$RUNNER_OS" = macOS ]; then P=$(brew --prefix isa-l); else P=/usr; fi
+          make -f build.mk ISAL_PREFIX="$P"
+      - name: Test
+        run: bash test/run_test.sh
