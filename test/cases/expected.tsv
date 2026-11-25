@@ -1,0 +1,21 @@
+case	exit	message
+P001_names.fq	1	P001_names_1.fq:45:1: [P001] NamesValidator: names mismatch: expected '@LH00275:195:22MW3YLT4:1:1148:4924:18053', got '@another_read'
+S001_plus_line.fq	1	S001_plus_line_1.fq:35:1: [S001] PlusLineValidator: missing + prefix
+S002_R2_before_S006_R1.fq	1	S002_R2_before_S006_R1_2.fq:18:1: [S002] AlphabetValidator: invalid sequence character: 'X'
+S002_invalid_base.fq	1	S002_invalid_base_1.fq:30:11: [S002] AlphabetValidator: invalid sequence character: 'R'
+S003_missing_at.fq	1	S003_missing_at_1.fq:13:1: [S003] NameValidator: missing @ prefix
+S004_empty_sequence.fq	1	S004_empty_sequence_2.fq:22:1: [S004] CompleteValidator: empty sequence
+S004_truncated_last_record.fq	1	S004_truncated_last_record_1.fq:83:1: [S004] CompleteValidator: empty plus line
+S005_lengths.fq	1	S005_lengths_1.fq:38:1: [S005] ConsistentSeqQualValidator: sequence-quality scores lengths mismatch: expected 151, got 150
+S006_quality_char.fq	1	S006_quality_char_2.fq:44:6: [S006] QualityStringValidator: invalid quality score character: ' '
+S007_duplicate_name.fq	1	S007_duplicate_name_1.fq:81:1: [S007] DuplicateNameValidator: duplicate name: '@LH00275:195:22MW3YLT4:1:2448:8054:12266'
+crlf.fq	0	
+no_final_newline.fq	0	
+r1_fewer_records.fq	1	Error: r1-src unexpectedly ended
+r2_fewer_records.fq	1	Error: r2-src unexpectedly ended
+valid.fq	0	
+gz_bad_crc.fq.gz	1	Error: I/O error
+gz_trailing_garbage.fq.gz	1	Error: I/O error
+gz_truncated.fq.gz	1	Error: I/O error
+multi_member_gz.fq.gz	0	
+not_gzip_named_gz.fq.gz	1	Error: I/O error
